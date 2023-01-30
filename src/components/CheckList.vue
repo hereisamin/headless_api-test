@@ -1,8 +1,9 @@
 <template>
     <div class="flex h-10 p-4 items-center justify-between"> 
         <div class="flex">
-            <p class="px-2 text-blue-900 font-bold">
-                Sending <span class="text-blue-900 underline">{{ requestName }}</span> request
+            <span class="w-16 text-right text-gray-600 font-bold">{{ method }}:</span>
+            <p class="px-1 text-blue-900 font-bold">
+                {{ requestName }}
             </p>
             <svg v-if="loading && !error" class="text-sky-600 animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -60,6 +61,10 @@ const props = defineProps({
     result: {
         type: Object,
         default: () => {},
-    }
+    },
+    method: {
+        type: String,
+        default: 'GET',
+    },
 })
 </script>

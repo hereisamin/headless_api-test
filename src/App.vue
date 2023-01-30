@@ -4,6 +4,7 @@
   :loading="request.loading"
   :error="request.error"
   :request-name="request.name"
+  :method="request.method"
   :result="request.result" />
 
 <Basket v-if="token.access" v-bind="{token}"/>
@@ -49,6 +50,7 @@ async function getTokenAxiosAsync() {
     loading: true,
     error: false,
     result: null,
+    method: 'POST',
   }
     await axios.post(getTokenUrl.value, {
       'code': code,
@@ -79,6 +81,7 @@ async function getCodeAsync() {
     loading: true,
     error: null,
     result: null,
+    method: 'GET',
   }
   let code = ''
 
